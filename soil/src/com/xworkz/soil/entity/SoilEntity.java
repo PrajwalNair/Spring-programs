@@ -1,5 +1,8 @@
 package com.xworkz.soil.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SoilEntity {
 
 	public SoilEntity() {
@@ -7,7 +10,9 @@ public class SoilEntity {
 	}
 
 	public void produceFood() {
-		System.out.println("hepls plants to produce foods");
+		System.out.println("hepls plants to produce foods 1");
 	}
 
 }
+
+
