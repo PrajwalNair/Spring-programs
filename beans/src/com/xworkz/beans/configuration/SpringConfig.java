@@ -439,5 +439,35 @@ public class SpringConfig {
 	public double collegeRating() {
 		return 4.9;
 	}
+	
+	@Bean
+	public String keyBoardBrand() {
+		return "Dell";
+	}
+	
+	@Bean
+	public int keyBoardPrice() {
+		return 800;
+	}
+	
+	@Bean
+	public String cellBrand() {
+		return "Nippo";
+	}
+	
+	@Bean
+	public int cellPrice() {
+		return 10;
+	}
+	
+	@Bean
+	public String mouseBrand() {
+		return "Dell";
+	}
+	
+	@Bean
+	public int mousePrice() {
+		return 300;
+	}
 
 }

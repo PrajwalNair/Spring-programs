@@ -1,7 +1,5 @@
 package com.xworkz.beans;
 
-import java.util.HashMap;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -18,11 +16,12 @@ import com.xworkz.beans.bean.Hostel;
 import com.xworkz.beans.bean.Hotel;
 import com.xworkz.beans.bean.House;
 import com.xworkz.beans.bean.Institute;
+import com.xworkz.beans.bean.Keyboard;
 import com.xworkz.beans.bean.Laptop;
 import com.xworkz.beans.bean.Mobile;
+import com.xworkz.beans.bean.Mouse;
 import com.xworkz.beans.bean.Oyo;
 import com.xworkz.beans.bean.Pg;
-import com.xworkz.beans.bean.Pilot;
 import com.xworkz.beans.bean.RailwayStation;
 import com.xworkz.beans.bean.Restaurent;
 import com.xworkz.beans.bean.School;
@@ -35,6 +34,15 @@ public class SpringBoot {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+		
+		
+		System.out.println(context.getBeanDefinitionCount());
+		
+		String[] beanDefinitionNames = context.getBeanDefinitionNames();
+		for (String string : beanDefinitionNames) {
+			System.out.println(string);
+		}
+		
 		Hotel bean = context.getBean(Hotel.class);
 		bean.display();
 		System.out.println(bean.getHotelName());
@@ -149,6 +157,16 @@ public class SpringBoot {
 		bean22.display();
 		System.out.println(bean22.getCollegeName());
 		System.out.println(bean22.getCollegeRating());
+		
+		Keyboard bean23 = context.getBean(Keyboard.class);
+		bean23.display();
+		System.out.println(bean23.getKeyBoardBrand());
+		System.out.println(bean23.getKeyBoardPrice());
+		
+		Mouse bean24 = context.getBean(Mouse.class);
+		bean24.display();
+		System.out.println(bean24.getMouseBrand());
+		System.out.println(bean24.getMousePrice());
 		
 		
 
