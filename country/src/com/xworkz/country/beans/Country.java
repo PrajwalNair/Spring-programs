@@ -1,10 +1,13 @@
 package com.xworkz.country.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+import com.xworkz.country.annote.Prajwal;
+
+@Prajwal
 public class Country {
 	@Value("India")
 	private String name;
@@ -21,7 +24,8 @@ public class Country {
 	@Value("31")
 	private int states;
 	@Autowired
-	private UnionTerritories unionTerritories;
+	@Qualifier("unionTerritories")
+	private UnionTerritories[] unionTerritories;
 	@Autowired
 	private CapitalCity capitalCity;
 
@@ -29,7 +33,7 @@ public class Country {
 	public String toString() {
 		return "Country [name=" + name + ", president=" + president + ", vicePresident=" + vicePresident
 				+ ", primeMinister=" + primeMinister + ", armySize=" + armySize + ", type=" + type + ", states="
-				+ states + ", unionTerritory=" + unionTerritories + ", capitalCity=" + capitalCity + "]";
+				+ states + ", unionTerritory=" + unionTerritories.toString() + ", capitalCity=" + capitalCity + "]";
 	}
 
 }

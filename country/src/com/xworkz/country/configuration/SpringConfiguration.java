@@ -9,6 +9,7 @@ import com.xworkz.country.beans.Name;
 import com.xworkz.country.beans.President;
 import com.xworkz.country.beans.Salary;
 import com.xworkz.country.beans.State;
+import com.xworkz.country.beans.UnionTerritories;
 import com.xworkz.country.beans.VicePresident;
 import com.xworkz.country.enums.Type;
 
@@ -90,6 +91,18 @@ public class SpringConfiguration {
 	public Education VicePresidentEducation() {
 		Education education = new Education(115, "VTU", "mechanical", 1990, "ahmedabad", 5, 75.29, true);
 		return education;
+	}
+	
+	@Bean
+	public UnionTerritories[] unionTerritories() {
+		UnionTerritories territories = new UnionTerritories("lakshadweep", 515, "bcbc", 16564);
+		UnionTerritories territories1 = new UnionTerritories("ladakh", 1656, "bxcjhb", 51454);
+		UnionTerritories [] ref = {territories,territories1};
+//		for (UnionTerritories unionTerritories : ref) {
+//			System.out.println(unionTerritories);
+//		}
+		return ref;
+		
 	}
 	
 	
