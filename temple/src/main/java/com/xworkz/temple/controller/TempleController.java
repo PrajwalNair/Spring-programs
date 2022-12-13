@@ -2,15 +2,19 @@ package com.xworkz.temple.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.xworkz.temple.dto.TempleDTO;
+import com.xworkz.temple.service.TempleService;
 
 @Component
 @RequestMapping("/send")
 public class TempleController {
+	@Autowired
+	private TempleService service;
 
 	public TempleController() {
 		System.out.println(getClass().getSimpleName());
@@ -19,7 +23,8 @@ public class TempleController {
 	@PostMapping
 	public String onSend(TempleDTO dto,HttpServletRequest request) {
 		System.out.println("Executing on send method");
-		if(dto.getPincode()>0 && dto.getFees()>0 ) {
+		boolean validateAndSave = service.validateAndSave(dto);
+		if(validateAndSave) {
 			request.setAttribute("msg", "Saved Successfully");
 			System.out.println(dto);
 		}else {

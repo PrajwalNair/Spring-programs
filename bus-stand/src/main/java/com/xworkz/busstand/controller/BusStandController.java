@@ -2,15 +2,19 @@ package com.xworkz.busstand.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.xworkz.busstand.dto.BusStandDTO;
+import com.xworkz.busstand.service.BusStandService;
 
 @Component
 @RequestMapping("/send")
 public class BusStandController {
+	@Autowired
+	private BusStandService service;
 
 	public BusStandController() {
 		System.out.println(getClass().getSimpleName());
@@ -19,7 +23,8 @@ public class BusStandController {
 	@PostMapping
 	public String onSend(BusStandDTO dto, HttpServletRequest request) {
 		System.out.println("executing the on send method");
-		if (dto.getNoOfShop() >= 0 && dto.getNoOfBusses() >= 0 && dto.getNoOfPlatform() >= 0) {
+		boolean validateAndSave = service.validateAndSave(dto);
+		if (validateAndSave) {
 			System.out.println(dto);
 			request.setAttribute("msg", "Saved Successfully");
 		} else {

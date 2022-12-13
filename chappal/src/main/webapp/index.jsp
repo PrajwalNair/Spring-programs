@@ -46,16 +46,7 @@ p {
 	font-size: xx-large;
 }
 </style>
-<script type="text/javascript">
-	function change_button(checkbx, button_id) {
-		var btn = document.getElementById(button_id);
-		if (checkbx.checked == true) {
-			btn.disabled = "";
-		} else {
-			btn.disabled = "disabled";
-		}
-	}
-</script>
+
 </head>
 <body>
 
@@ -103,22 +94,22 @@ p {
 		Price <input type="text" name="price"> <br>
 		Color <select name="color" ><br>
 			<option>---Select---</option>
-			<option>Red</option>
-			<option>Green</option>
-			<option>Blue</option>
-			<option>Velvet</option>
-			<option>Navy</option>
-			<option>Pink</option>
+			<option value="Red">Red</option>
+			<option value="Green">Green</option>
+			<option value="Blue">Blue</option>
+			<option value="Velvet">Velvet</option>
+			<option value="Navy">Navy</option>
+			<option value="Pink">Pink</option>
 
 		</select> <br>
 		Size <select name="size">
 			<option>---Select---</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-			<option>8</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
 
 		</select><br>
 		Gender <input type="radio" name="gender">M
