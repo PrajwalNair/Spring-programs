@@ -87,7 +87,7 @@ a {
 		Name<input type="text" name="name" value="${dto.name}"> <br>
 		Location <select name="location" value="${dto.location}">
 			<option value="---Select---">---Select---</option>
-			<option value="kerala">kerala</option>
+			<option value="kerala">kerala</option> 
 			<option value="karnataka">karnataka</option>
 			<option value="Maharashtra">Maharashtra</option>
 			<option value="Tamil Nadu">Tamil Nadu</option>

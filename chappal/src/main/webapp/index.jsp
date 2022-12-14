@@ -86,8 +86,8 @@ p {
 		</div>
 	</nav>
 	<h1>Information of Chappal</h1>
-	<p class="text-success" ${message}></p>
-	<p class="text-success" ${error}></p>
+	<p class="text-success" >${message}</p>
+	<p class="text-danger" >${error}</p>
 	<form action="send" method="post">
 	<pre>
 		Brand <input type="text" name="brand"> <br>

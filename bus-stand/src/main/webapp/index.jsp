@@ -26,6 +26,11 @@ pre {
 	font-weight: bold;
 	font-size: large;
 }
+p {
+	font-size: large;
+	font-weight: bolder;
+	font-style: italic;
+}
 </style>
 
 </head>
