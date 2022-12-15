@@ -15,12 +15,15 @@ public class BikeShowroomRepositoryImpl implements BikeShowroomRepository {
 	@Autowired
 	@PersistenceUnit(name ="com.xworkz")
 	private EntityManagerFactory factory;
-
+ 
+	
 	@Override
-	public boolean save(BikeShowroomDTO dto) {
+	public boolean save(BikeShowroomDTO dto) 
+	{
 		System.out.println(" Calling repository method from BikeShowroomRepositoryImpl"+factory);
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
+		
 		try {
 			transaction.begin();
 			manager.persist(dto);

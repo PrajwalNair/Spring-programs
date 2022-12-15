@@ -18,7 +18,10 @@ public class SpringConfiguration {
 	public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		
 		return factoryBean;
 	}
+
+	
 
 }
