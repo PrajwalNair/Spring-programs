@@ -23,28 +23,33 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
+
 form {
 	text-align: center;
-	
 }
+
 pre {
 	color: background;
 	font-size: large;
 	font-style: italic;
 	font-weight: bold;
 }
+
 h1 {
-	text-align :center;
+	text-align: center;
 	font-weight: bold;
 	font-style: italic;
 	color: maroon;
 }
+
 input {
-	opacity:0.8;
+	opacity: 0.8;
 }
-select{
-opacity: 0.8;
+
+select {
+	opacity: 0.8;
 }
+
 a {
 	font-style: italic;
 }
@@ -55,35 +60,61 @@ a {
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<img alt="" src="https://i0.wp.com/meditativemind.org/wp-content/uploads/2018/11/OM-Mantra-Symbol-Meaning.jpg?fit=900%2C584&ssl=1" width="150" height="75" style="border: thick;">
+		<img alt=""
+			src="https://i0.wp.com/meditativemind.org/wp-content/uploads/2018/11/OM-Mantra-Symbol-Meaning.jpg?fit=900%2C584&ssl=1"
+			width="150" height="75" style="border: thick;">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarTogglerDemo01"
 			aria-controls="navbarTogglerDemo01" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">&nbsp;&nbsp;
-			<a class="navbar-brand" href="#" style="color: orange;">Kedarnath</a>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			&nbsp;&nbsp; <a class="navbar-brand" href="#" style="color: orange;">Kedarnath</a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link" href="https://www.google.com/search?q=temple+images&rlz=1C1GCEA_enIN1011IN1011&oq=temple+&aqs=chrome.0.69i59j69i57j46i131i433i512l2j0i512j46i131i175i199i433i512j0i433i512j0i131i433i457i512j0i402l2.3832j0j15&sourceid=chrome&ie=UTF-8">Home
+				<li class="nav-item active"><a class="nav-link"
+					href="https://www.google.com/search?q=temple+images&rlz=1C1GCEA_enIN1011IN1011&oq=temple+&aqs=chrome.0.69i59j69i57j46i131i433i512l2j0i512j46i131i175i199i433i512j0i433i512j0i131i433i457i512j0i402l2.3832j0j15&sourceid=chrome&ie=UTF-8">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
+			<!-- <form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="font-style: oblique;font-weight: bold;font-style: italic; ">Search</button>
-			</form>
+				<button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="font-style: oblique;font-weight: bold;font-style: italic; "
+				>Search</button>
+			</form> -->
+			<a href="Search.jsp">Search</a>
 		</div>
 	</nav>
-	<h1>Please Enter The Details</h1> <br>
-	<p style="color: green;font-weight: bolder;font-style: italic;font-size: x-large;text-align: center; text-decoration: underline;">${msg}</p>
-	<p style="color: red;font-weight: bolder;font-style: italic;font-size: x-large;text-align: center;text-decoration: underline;">${error}</p>
-	<form action="send" method="post">
+	<h1>Please Enter The Details</h1>
+	<br>
+	<p
+		style="color: green; font-weight: bolder; font-style: italic; font-size: x-large; text-align: center; text-decoration: underline;">${msg}</p>
+	<p
+		style="color: red; font-weight: bolder; font-style: italic; font-size: x-large; text-align: center; text-decoration: underline;">${error}</p>
+	<div>
 	<pre>
+	<div class="w3-column-padding">
+  <div class="w3-container w3-third">
+    <img src="https://i.pinimg.com/474x/c9/a7/46/c9a74698016b890146447a5db782fd50.jpg" style="width:10%" onclick="onClick(this)">
+  </div>
+  <div class="w3-container w3-third">
+    <img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2022/03/01/1023752-maha-shivratri.jpg" style="width:10%" onclick="onClick(this)">
+  </div>
+  <div class="w3-container w3-third">
+    <img src="https://m.media-amazon.com/images/I/71+fZ6O2l+L._SY550_.jpg" style="width:10%" onclick="onClick(this)">
+  </div>
+  </pre>
+</div>
+
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+  <img class="w3-modal-content" id="img01" style="width:10%">
+</div>
+	<form action="send" method="post">
+		<pre>
 		Name<input type="text" name="name" value="${dto.name}"> <br>
 		Location <select name="location" value="${dto.location}">
 			<option value="---Select---">---Select---</option>
@@ -115,11 +146,21 @@ a {
 		Fees<input type="text" name="fees" value="${dto.fees}"><br>
 		Open Time<input type="text" name="openTime" value="${dto.openTime}"><br>
 		Close Time<input type="text" name="closeTime" value="${dto.closeTime}"><br>
-		<input type="submit" value="submit" style="font-style: italic; font-weight: bolder; background: green; border: thin;opacity: inherit;">
+		<input type="submit" value="submit"
+				style="font-style: italic; font-weight: bolder; background: green; border: thin; opacity: inherit;">
 		
 	</pre>
 	</form>
+	</div>
 
+	
+
+<script>
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+}
+</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

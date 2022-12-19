@@ -1,5 +1,7 @@
 package com.xworkz.oyo.service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -31,6 +33,12 @@ public class OyoServiceImpl implements OyoService {
 			repo.save(dto);
 		}
 		return true;
+	}
+
+	@Override
+	public Optional<List<OyoDTO>> findByLocation(String location) {
+		
+		return repo.findByLocation(location);
 	}
 
 }

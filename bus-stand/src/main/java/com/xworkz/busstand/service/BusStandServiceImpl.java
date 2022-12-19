@@ -1,5 +1,7 @@
 package com.xworkz.busstand.service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -31,6 +33,11 @@ public class BusStandServiceImpl implements BusStandService {
 			repo.save(dto);
 		}
 		return true;
+	}
+
+	@Override
+	public Optional<List<BusStandDTO>> findByName(String name) {
+		return repo.findByName(name);
 	}
 
 }

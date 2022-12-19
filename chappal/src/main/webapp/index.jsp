@@ -80,8 +80,9 @@ p {
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					placeholder="Search" aria-label="Search" >
+					<a href="Search.jsp" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</a>
+				
 			</form>
 		</div>
 	</nav>

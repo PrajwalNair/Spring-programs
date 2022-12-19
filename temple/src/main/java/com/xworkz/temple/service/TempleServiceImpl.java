@@ -1,5 +1,7 @@
 package com.xworkz.temple.service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -32,6 +34,12 @@ public class TempleServiceImpl implements TempleService {
 			repo.save(dto);
 		}
 		return true;
+	}
+
+	@Override
+	public Optional<List<TempleDTO>> findByGod(String god) {
+
+		return repo.findByGod(god);
 	}
 
 }

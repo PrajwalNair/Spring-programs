@@ -1,8 +1,13 @@
 package com.xworkz.oyo.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +35,21 @@ public class OyoRepositoryImpl implements OyoRepository {
 			manager.close();
 		}
 		return true;
+	}
+
+	@Override
+	public Optional<List<OyoDTO>> findByLocation(String location) {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByLocation");
+			query.setParameter("lc", location);
+			return Optional.ofNullable(query.getResultList());
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+		return Optional.empty();
 	}
 
 }

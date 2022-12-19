@@ -1,5 +1,7 @@
 package com.xworkz.chappal.service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -24,13 +26,19 @@ public class ChappalServiceImpl implements ChappalService {
 		ValidatorFactory buildDefaultValidatorFactory = Validation.buildDefaultValidatorFactory();
 		Validator validator = buildDefaultValidatorFactory.getValidator();
 		Set<ConstraintViolation<ChappalEntity>> validate = validator.validate(entity);
-		if(validate.size()>0) {
+		if (validate.size() > 0) {
 			System.out.println("data is not saved fix the errors");
-		}else {
+		} else {
 			System.out.println("data ia valid and saved");
 			repo.save(entity);
 		}
 		return true;
+	}
+
+	@Override
+	public Optional<List<ChappalEntity>> findByBrand(String brand) {
+
+		return repo.findByBrand(brand);
 	}
 
 }

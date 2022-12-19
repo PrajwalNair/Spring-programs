@@ -1,5 +1,7 @@
 package com.xworkz.bikeshowroom.service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -33,6 +35,12 @@ public class BikeShowroomServiceImpl implements BikeShowroomService {
 		}
 		
 		return true;
+	}
+
+	@Override
+	public Optional<List<BikeShowroomDTO>> findByBrand(String brand) {
+		// TODO Auto-generated method stub
+		return repo.findByBrand(brand);
 	}
 
 }
