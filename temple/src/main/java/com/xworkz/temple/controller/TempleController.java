@@ -37,7 +37,7 @@ public class TempleController {
 			request.setAttribute("error", "Please Enter the valid data");
 			request.setAttribute("dto", dto);
 		}
-		return "index.jsp";
+		return "index";
 	}
 
 	@GetMapping
@@ -52,7 +52,7 @@ public class TempleController {
 		} else {
 			System.out.println("No results found");
 			model.addAttribute("error", "No results found");
-			return "Search.jsp";
+			return "Search";
 		}
 
 	}
