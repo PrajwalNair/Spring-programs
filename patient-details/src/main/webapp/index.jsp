@@ -49,7 +49,7 @@
 	<p style="text-align: center; color: red;">${error}</p>
 	<p style="text-align: center; color: red;">${error1}</p>
 	<div class= "formback">
-	<form action="send" method="post">
+	<form action="send" method="post" enctype="multipart/form-data">
 	<div class="data">
 		
 Name <input type="text" name="name" value="${dto.name}"> <br> <br>
@@ -82,6 +82,9 @@ Insurance <input type="radio" id="yes" name="insurance" value="yes">
 		<label for="yes" >Yes</label>
 		<input type="radio" id="no" name="insurance" value="no">
 		<label for="no" >No</label><br>
+		<label >File</label>
+		<input type="file" name="file">
+		
 			<input class="btn btn-secondary " type="submit" value="send" >
 </div>
 	</form>
