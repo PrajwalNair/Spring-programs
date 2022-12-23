@@ -1,19 +1,26 @@
 package com.xworkz.patient.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,6 +59,11 @@ public class PatientController {
 			System.out.println(path);
 			Files.write(path,bytes);
 			dto.setFileName(files);
+			long size = file.getSize();
+			dto.setFileSize(size);
+			String name = file.getName();
+			String contentType = file.getContentType();
+			dto.setContentType(contentType);
 			boolean validateAndSave = service.validateAndSave(dto);
 			if (validateAndSave) {
 				System.out.println("Data is saved" + dto);
@@ -64,7 +76,6 @@ public class PatientController {
 				return "index";
 			}
 		}
-
 	}
 
 	@GetMapping
@@ -90,5 +101,46 @@ public class PatientController {
 		}
 
 	}
+	
+	
+	@GetMapping(value = "/files/{file_name}")
+	public void getFile(@PathVariable("file_name") String fileName,HttpServletResponse response) throws IOException {
+		System.out.println("File name is "+fileName);
+
+		Path path = Paths
+				.get("D://multipart-image/" +fileName);
+	    byte[] file = Files.readAllBytes(path);
+	    response.reset();
+
+	    response.setContentType("download/png"); 
+	    
+	    try {
+	        response.getOutputStream().write(file);
+	        String contentType = response.getContentType();
+	        
+	        
+	    } catch (IOException e) {
+
+	    	e.printStackTrace();
+	    }
+	}
+	
+//	@GetMapping({"**/image"})
+//	public void sendFile(@RequestParam String fileName, HttpServletResponse response ) {
+//		File file = new File("D://multipart-image/"+fileName);
+//		String mimeType = URLConnection.guessContentTypeFromName(file.getName());
+//		response.setContentType(mimeType);
+//		
+//		try {
+//			ServletOutputStream outputStream = response.getOutputStream();
+//			outputStream.write(Files.readAllBytes(file.toPath()));
+//			
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
+//	}
 
 }

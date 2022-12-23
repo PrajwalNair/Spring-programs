@@ -44,6 +44,7 @@
 	<div class="details">
 		<pre>
 Name :${dto.name} <br>
+Image: <img  src="send/files/${dto.fileName}" width="100" height="150">
 Email :${dto.email}<br>
 Age :${dto.age}<br>
 Mobile No :${dto.mobileNo} <br>

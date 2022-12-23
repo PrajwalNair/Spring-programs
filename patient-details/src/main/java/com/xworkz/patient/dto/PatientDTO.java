@@ -57,6 +57,9 @@ public class PatientDTO extends AbstractDTO {
 	@NotEmpty
 	private String insurance;
 	private String fileName;
+	private long fileSize;
+	private String contentType;
+
 
 	public PatientDTO(String createdBy, LocalDate createdDate,
 			@NotNull @NotEmpty @Length(min = 3, max = 50) String name,

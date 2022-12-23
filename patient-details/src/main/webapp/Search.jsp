@@ -82,7 +82,8 @@ Age  :<input type="text" name="age"><br><br>
 			<table class="table table-striped table-dark">
 				<thead>
 					<tr>
-						<th scope="col">Id Value</th>
+						<th scope="col">Id </th>
+						<th scope="col">Image </th>
 						<th scope="col">Name</th>
 						<th scope="col">Email Id</th>
 						<th scope="col">Age</th>
@@ -91,6 +92,9 @@ Age  :<input type="text" name="age"><br><br>
 						<th scope="col">Id Proof</th>
 						<th scope="col">BPL Card</th>
 						<th scope="col">Id Proof</th>
+						<th scope="col">Id value</th>
+						<th scope="col">File Size</th>
+						<th scope="col">Content Type</th>
 
 
 					</tr>
@@ -99,14 +103,18 @@ Age  :<input type="text" name="age"><br><br>
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.id}</td>
+						<td><img  src="send/files/${dto.fileName}" width="100" height="150"> </td>
 						<td>${dto.name}</td>
 						<td>${dto.email}</td>
 						<td>${dto.age}</td>
 						<td>${dto.mobileNo}</td>
 						<td>${dto.gender}</td>
 						<td>${dto.idProof}</td>
+						<td>${dto.idValue}</td>
 						<td>${dto.bplCard}</td>
 						<td>${dto.insurance}</td>
+						<td>${dto.fileSize}</td>
+						<td>${dto.contentType}</td>
 
 
 					</tr>
