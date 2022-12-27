@@ -79,7 +79,7 @@ public class PatientController {
 	}
 
 	@GetMapping
-	public String onSearch(@RequestParam String name, Model model, int age) {
+	public String onSearch(@RequestParam String name, Model model,@RequestParam int age) {
 		System.out.println("on search method for is running");
 		Optional<List<PatientDTO>> findByName = service.findByName(name);
 		Optional<List<PatientDTO>> findByAgeGreaterThan = service.findByAgeGreaterThan(age);
@@ -110,12 +110,14 @@ public class PatientController {
 		Path path = Paths
 				.get("D://multipart-image/" +fileName);
 	    byte[] file = Files.readAllBytes(path);
+	    File file2 = new File("D://multipart-image/"+fileName);
 	    response.reset();
-
-	    response.setContentType("download/png"); 
+	    String mimeType = URLConnection.guessContentTypeFromName(file2.getName());
+	    response.setContentType(mimeType); 
 	    
 	    try {
-	        response.getOutputStream().write(file);
+//	        response.getOutputStream().write(file);
+	    	response.getOutputStream().write(Files.readAllBytes(file2.toPath()));
 	        String contentType = response.getContentType();
 	        
 	        

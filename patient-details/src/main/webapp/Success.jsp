@@ -44,7 +44,12 @@
 	<div class="details">
 		<pre>
 Name :${dto.name} <br>
-Image: <img  src="send/files/${dto.fileName}" width="100" height="150">
+Image: <%-- <img  src="send/files/${dto.fileName}" width="100" height="150"> --%>
+<video width="100" height="150" controls>
+  <source src="send/files/${dto.fileName}" type="video/mp4">
+  <!-- <source src="movie.ogg" type="video/ogg"> -->
+  <!-- Your browser does not support the video tag. -->
+</video>
 Email :${dto.email}<br>
 Age :${dto.age}<br>
 Mobile No :${dto.mobileNo} <br>

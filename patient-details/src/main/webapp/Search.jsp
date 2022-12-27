@@ -77,6 +77,8 @@ Age  :<input type="text" name="age"><br><br>
 			<input type="submit" value="Search">
 		</div>
 		<br>
+		
+</form>		
 
 		<div class="page" style="width: 30; height: 30">
 			<table class="table table-striped table-dark">
@@ -103,7 +105,12 @@ Age  :<input type="text" name="age"><br><br>
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.id}</td>
-						<td><img  src="send/files/${dto.fileName}" width="100" height="150"> </td>
+						<td><%-- <img  src="send/files/${dto.fileName}" width="100" height="150"> --%> 
+						<video width="100" height="150" controls>
+  <source src="send/files/${dto.fileName}" type="video/mp4">
+  <!-- <source src="movie.ogg" type="video/ogg"> -->
+  <!-- Your browser does not support the video tag. -->
+</video></td>
 						<td>${dto.name}</td>
 						<td>${dto.email}</td>
 						<td>${dto.age}</td>
@@ -130,7 +137,7 @@ Age  :<input type="text" name="age"><br><br>
 
 
 
-	</form>
+	
 </div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
