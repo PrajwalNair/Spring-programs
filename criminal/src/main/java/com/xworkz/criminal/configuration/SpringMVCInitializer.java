@@ -42,6 +42,4 @@ public class SpringMVCInitializer extends AbstractAnnotationConfigDispatcherServ
 		File file = new File("D:/multipart-image");
 		MultipartConfigElement configElement = new MultipartConfigElement(file.getAbsolutePath(), 1000000000, 1000000000*2, 1000000000/2);
 		registration.setMultipartConfig(configElement);
-	}
-
-}
+	}}

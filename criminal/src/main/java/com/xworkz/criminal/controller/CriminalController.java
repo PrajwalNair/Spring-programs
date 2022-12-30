@@ -35,7 +35,7 @@ public class CriminalController {
 		System.out.println(getClass().getSimpleName());
 	}
 
-	@PostMapping
+	@PostMapping 
 	public String onSend(CriminalDTO dto, Model model,@RequestParam("file") MultipartFile file) {
 		System.out.println("On send method is running");
 		

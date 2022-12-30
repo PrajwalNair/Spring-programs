@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "patient")
-@NamedQuery(name = "findByName", query = "select alia from PatientDTO alia where alia.name=:nm")
+@NamedQuery(name = "findByName", query = "select alia from PatientDTO alia where alia.name like :nm")
 @NamedQuery(name = "findByAgeGreaterThan", query = "select alia from PatientDTO alia where alia.age>:ag ")
 @NamedQuery(name = "findByEmail", query = "select alia from PatientDTO alia where alia.email=:em")
 @NamedQuery(name = "findByMobileNo", query = "select alia from PatientDTO alia where alia.mobileNo=:mb")
